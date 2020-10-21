@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import  {useSelector} from 'react-redux';
 import TimeField from 'react-simple-timefield';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 
 const Employeedash = ()=>{
@@ -12,6 +13,8 @@ const Employeedash = ()=>{
 
     const selector = useSelector(state => state.fetch);
     console.log(selector);
+
+    const history = useHistory();
 
     const employeeid = selector.data.id;
 
@@ -36,14 +39,14 @@ const Employeedash = ()=>{
         const res = await axios.post('http://localhost:4000/logs', {starttime, endtime, log, employeeid})
          console.log(res);
 
-        
+        history.push('/');
     
     }
 
 
 
     return(
-        <div className="employee-dash">
+        <form className="employee-dash">
             <h1>Welcome, {selector.data.name}</h1>
             <TimeField 
                 onChange={onStartChange}
@@ -57,7 +60,7 @@ const Employeedash = ()=>{
             />
             <input className ="ui input" type="text"  onChange={onInputChange} />
             <button className="ui button" onClick={onSubmitHandler}>submit</button>
-        </div>
+        </form>
     );
 }
 
