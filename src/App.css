@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.App{
+    display: flex;
+    min-height: 100vh;
+}
+    
+.form-container{
+    width: 400px;
+    min-height: 200px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    margin: auto ;
+    
+}
+
+.form{
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.employee-dash{
+    padding: 20px;
+}
